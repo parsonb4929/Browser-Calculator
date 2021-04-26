@@ -6,5 +6,7 @@ The Shunting Yard Algorithm rearranges an infix expression (such as "A\*B+C") in
   
 # Instructions  
 To execute commands or run the code, "npm run <execution>" can be used in general. Scripts and their function can be found in package.json.  
+  
 run "npm install" to download necessary packages. Requires Node (obviously).  
+  
 Calculator executes postfix expressions, but it takes infix expressions. The conversion takes place in postfix.js and is executed in postfixEvaluation.js. The calculator is built in the DOM with React and Material-ui. The server simply serves the html document which is built from esbuild JavaScript and React.  
