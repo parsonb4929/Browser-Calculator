@@ -1,0 +1,53 @@
+{
+  "name": "sockets-final-project",
+  "version": "0.0.1",
+  "description": "queries bgg database and retrieves json data",
+  "main": "index.js",
+  "scripts": {
+    "devServer": "nodemon server/index.js",
+    "server": "run-s cleanServer buildServer runServer",
+    "devClient": "run-s cleanClient devBundle",
+    "client": "run-s cleanClient bundle",
+    "runServer": "node ./dist/server.js",
+    "buildServer": "babel ./server --out-dir=./dist",
+    "cleanServer": "rm -rf ./dist",
+    "devBundle": "esbuild client/app.jsx --target=es6 --watch --bundle --sourcemap --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js",
+    "bundle": "esbuild client/app.jsx --target=es6 --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js",
+    "cleanClient": "rm -f ./public/bundle.*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brett Parson",
+  "private": true,
+  "license": "MIT",
+  "nodemonConfig": {
+    "execMap": {
+      "js": "babel-node"
+    },
+    "watch": [
+      "server/**/*"
+    ]
+  },
+  "devDependencies": {
+    "esbuild": "^0.10.2",
+    "eslint": "^7.22.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "@babel/preset-env": "^7.13.10",
+    "@material-ui/core": "^4.11.3",
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  }
+}
